@@ -1,7 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
@@ -65,7 +63,7 @@ export default function TextFields() {
     variant="body2"
     className={classes.links}
     >
-    Menu
+    About
     </Link>
     <Link
     component="button"

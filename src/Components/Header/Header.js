@@ -2,10 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,7 +16,16 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  link: {
+    undeline: 'none',
+  },
+  btns: {
+    position: 'absolute',
+    right: '0px',
+    marginRight: '40px'
+  },
 }));
+
 
 export default function ButtonAppBar() {
   const classes = useStyles();
@@ -26,13 +34,26 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
+        <Typography gutterBottom variant="h5" component="h2">
+            CATS    
+        </Typography>
+        <div className = {classes.btns}>
+        <Link to="/" className={classes.link}>
+           <Button className={classes.button}>
+             Cats page
+           </Button>
+         </Link>
+          <Link to="/aboutus" className={classes.link}>
+           <Button className={classes.button}>
+             About us
+           </Button>
+         </Link>
+         <Link to="/contact" className={classes.link}>
+           <Button className={classes.button}>
+             Contact
+           </Button>
+         </Link>
+         </div>
         </Toolbar>
       </AppBar>
     </div>
