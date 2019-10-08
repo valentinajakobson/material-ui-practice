@@ -5,6 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
+import PetsIcon from '@material-ui/icons/Pets';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,13 +19,19 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   link: {
-    undeline: 'none',
+    textDecoration: 'none' 
   },
   btns: {
     position: 'absolute',
     right: '0px',
     marginRight: '40px'
   },
+  icon: {
+    marginRight: '10px'
+  },
+  bar: {
+    backgroundColor:'#52a2f2'
+  }
 }));
 
 
@@ -32,11 +40,14 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <nav>
+      <AppBar position="static"className={classes.bar}>
         <Toolbar>
         <Typography gutterBottom variant="h5" component="h2">
+        <PetsIcon className={classes.icon}/>
             CATS    
         </Typography>
+       
         <div className = {classes.btns}>
         <Link to="/" className={classes.link}>
            <Button className={classes.button}>
@@ -56,6 +67,8 @@ export default function ButtonAppBar() {
          </div>
         </Toolbar>
       </AppBar>
+      </nav>
     </div>
   );
 }
+

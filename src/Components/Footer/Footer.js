@@ -4,16 +4,22 @@ import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
-    backgroundColor: 'pink'
+    backgroundColor: '#52a2f2'
   },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+    marginBottom: '20px',
     width: 200,
   },
   dense: {
@@ -27,7 +33,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: '20px',
       marginLeft: '60px',
       padding: '10px',
-      color: 'black'
+      color: 'black',
   },
   menuContainer:{
       flex:1
@@ -37,7 +43,8 @@ const useStyles = makeStyles(theme => ({
       display: 'block'
   },
   button:{
-      display: 'block'
+      display: 'block',
+      margin:'10px'
   },
   form: {
     display: 'block'
@@ -75,10 +82,8 @@ export default function TextFields() {
     </div>
     <div className={classes.formContainer}>
     <form className={classes.form} noValidate autoComplete="off">
-        <div>
-            
-     
-    <Typography component="h1">
+    <div>
+    <Typography variant="h6">
         Contact us
     </Typography>
       <TextField
@@ -86,9 +91,37 @@ export default function TextFields() {
         label="Name"
         className={classes.textField}
       />
-         </div>
+    </div>
+    <FormControl component="fieldset">
+      <FormLabel component="legend">Your city</FormLabel>
+      <FormGroup aria-label="position" name="position">
+    <FormControlLabel
+          value="end"
+          control={<Checkbox color="primary" />}
+          label="Helsinki"
+          labelPlacement="end"
+        />
+        <FormControlLabel
+          value="end"
+          control={<Checkbox color="primary" />}
+          label="Espoo"
+          labelPlacement="end"
+        />
+        <FormControlLabel
+          value="end"
+          control={<Checkbox color="primary" />}
+          label="Vantaa"
+          labelPlacement="end"
+        />
+        <FormLabel component="legend">Gender</FormLabel>
+        <RadioGroup aria-label="gender" name="gender1" >
+          <FormControlLabel value="female" control={<Radio />} label="Female" />
+          <FormControlLabel value="male" control={<Radio />} label="Male" />
+        </RadioGroup>
+      </FormGroup>
+      </FormControl>
     <Button variant="contained" className={classes.button}>
-        Default
+        Submit
     </Button>
     </form>
     </div>

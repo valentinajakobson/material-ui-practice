@@ -30,7 +30,10 @@ const useStyles = makeStyles(theme => ({
   },
   media: {
     height: '300px'
-  }
+  },
+  link: {
+    textDecoration: 'none' 
+  },
 }));
 
 let data = require('./posts.json')
